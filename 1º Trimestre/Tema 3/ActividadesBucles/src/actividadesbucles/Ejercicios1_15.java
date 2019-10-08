@@ -178,18 +178,17 @@ public class Ejercicios1_15 {
     }
 
     public void ejercicio12() {
-        System.out.println("Escribe un programa que muestre los n primeros términos de la serie de Fibonacci. El\n" +
-        "primer término de la serie de Fibonacci es 0, el segundo es 1 y el resto se calcula\n" +
-        "sumando los dos anteriores, por lo que tendríamos que los términos son 0, 1, 1, 2, 3, 5,\n" +
-        "8, 13, 21, 34, 55, 89, 144… El número n se debe introducir por teclado.");
-        
-        int sum= 0, sum2 = 1, aux, num = s.nextInt();
-        
+        System.out.println("Escribe un programa que muestre los n primeros términos de la serie de Fibonacci. El\n"
+                + "primer término de la serie de Fibonacci es 0, el segundo es 1 y el resto se calcula\n"
+                + "sumando los dos anteriores, por lo que tendríamos que los términos son 0, 1, 1, 2, 3, 5,\n"
+                + "8, 13, 21, 34, 55, 89, 144… El número n se debe introducir por teclado.");
+
+        int sum = 0, sum2 = 1, aux, num = s.nextInt();
+
         for (int i = 0; i <= num; i++) {
-        aux = sum+sum2;
             System.out.println(sum);
-}
-        
+        }
+
     }
 
     public void ejercicio13() {
