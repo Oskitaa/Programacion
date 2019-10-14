@@ -185,19 +185,66 @@ public class Ejercicios1_15 {
 
         int sum = 0, sum2 = 1, aux, num = s.nextInt();
 
-        for (int i = 0; i <= num; i++) {
-            System.out.println(sum);
-        }
-
+        for (int i = 1; i <= num; i++) {
+      if (i == 1) {
+        System.out.print(sum + ", ");
+      } else if (i == 2) {
+        System.out.print(sum2 + ", ");
+      } else {
+        System.out.print((sum + sum2) + ", ");
+        aux = sum2;
+        sum2 += sum;
+        sum = aux;
+      }
+      }
     }
 
     public void ejercicio13() {
+
+        int base, poten, result;
+
+        System.out.println("Escribe un programa que pida una base y un exponente (entero positivo) y que calcule\n"
+                + "la potencia.");
+
+        System.out.println("introduce la base: ");
+        base = s.nextInt();
+        result = base;
+        System.out.println("Introduce la potencia: ");
+        poten = s.nextInt();
+
+        for (int i = 1; i < poten; i++) {
+
+            result = result * base;
+        }
+        System.out.println("La potencia de "+base+"^"+poten+" = "+result);
     }
 
     public void ejercicio14() {
+
+        int num, cont_pos = 0, cont_neg = 0;
+
+        System.out.println("Introcue 10 numeros, el programa dira cuantos son negativos y cuantos posivivos");
+
+        for (int i = 0; i < 10; i++) {
+            num = s.nextInt();
+            if (num > 0) {
+                cont_pos++;
+            }
+            if (num < 0) {
+                cont_neg++;
+
+            }
+            if (num == 0) {
+                System.out.println("0 no es negativo ni positivo");
+            }
+        }
+
+        System.out.println("Hay " + cont_pos + " positivos y " + cont_neg + " negativos");
     }
 
     public void ejercicio15() {
+        
+        
     }
 
 }

@@ -20,6 +20,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         Ejercicios1_15 ej1_15 = new Ejercicios1_15();
+        Ejercicio16_30 ej16_30 = new Ejercicio16_30();
         int menu;
         System.out.println("Este mensaje solo se mostrará una vez:\n0.Salir. \n1-7.Actividades");
         try {
@@ -74,22 +75,52 @@ public class Main {
                         break;
                     case 15:
                         ej1_15.ejercicio15();
-                        break;/*
+                        break;
                     case 16:
-                        ej.ejercicio16();
+                        ej16_30.ejercicio16();
                         break;
                     case 17:
-                        ej.ejercicio17();
+                        ej16_30.ejercicio17();
                         break;
                     case 18:
-                        ej.ejercicio18();
+                        ej16_30.ejercicio18();
                         break;
                     case 19:
-                        ej.ejercicio19();
+                        ej16_30.ejercicio19();
                         break;
                     case 20:
-                        ej.ejercicio20();
-                        break;*/
+                        ej16_30.ejercicio20();
+                        break;
+                    case 21:
+                        ej16_30.ejercicio21();
+                        break;
+                    case 22:
+                        ej16_30.ejercicio22();
+                        break;
+                    case 23:
+                        ej16_30.ejercicio23();
+                        break;
+                    case 24:
+                        ej16_30.ejercicio24();
+                        break;
+                    case 25:
+                        ej16_30.ejercicio25();
+                        break;
+                    case 26:
+                        ej16_30.ejercicio26();
+                        break;
+                    case 27:
+                        ej16_30.ejercicio27();
+                        break;
+                    case 28:
+                        ej16_30.ejercicio28();
+                        break;
+                    case 29:
+                        ej16_30.ejercicio29();
+                        break;
+                    case 30:
+                        ej16_30.ejercicio30();
+                        break;
                     default:
                         System.out.println("Pruebe con un número entre 0 y 7");
                 }
@@ -100,5 +131,5 @@ public class Main {
             s.next();
         }
     }
-    
+
 }
