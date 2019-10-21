@@ -191,47 +191,201 @@ public class Ejercicios {
 
     public void ejercicio7() {
 
-        /*Escribe un programa que muestre tres apuestas de la quiniela en tres columnas para los
-        14 partidos y el pleno al quince (15 filas).*/
-        int numquiniela;
-        String apuesta;
+        int numquiniela,
+                columnas = 3;
+        String apuesta = "";
+
         for (int i = 1; i < 16; i++) {
-
-            numquiniela = (int) (Math.random() * 3);
-
-            switch (numquiniela) {
-
-                case 0:
-                    apuesta = "X";
-                    break;
-                default:
-                    apuesta = String.valueOf(numquiniela);
+            System.out.printf("%4d. |", i);
+            if (i == 15) {
+                columnas = 1;
 
             }
-            System.out.println(i+". Apuesta "+i+" ");
-            
 
+            for (int j = 1; j <= columnas; j++) {
+
+                numquiniela = (int) (Math.random() * 3);
+
+                switch (numquiniela) {
+
+                    case 0:
+                        System.out.print("   | X |    || ");
+                        break;
+                    case 1:
+                        System.out.print(" 1 |   |    || ");
+                        break;
+                    case 2:
+                        System.out.print("   |   | 2  || ");
+                        break;
+                }
+
+            }
+            System.out.println("");
         }
 
     }
 
     public void ejercicio8() {
-        
+
+        int numquiniela,
+                columnas = 3;
+        String apuesta = "";
+
+        for (int i = 1; i < 16; i++) {
+            System.out.printf("%4d. |", i);
+            if (i == 15) {
+                columnas = 1;
+
+            }
+
+            for (int j = 1; j <= columnas; j++) {
+
+                numquiniela = (int) (Math.random() * 6);
+
+                switch (numquiniela) {
+
+                    case 0:
+                        System.out.print("   | X |    || ");
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        System.out.print(" 1 |   |    || ");
+                        break;
+                    case 4:
+                    case 5:
+                        System.out.print("   |   | 2  || ");
+                        break;
+                }
+
+            }
+            System.out.println("");
+        }
+
     }
 
     public void ejercicio9() {
+        int numram, contador = 0;
+
+        do {
+            numram = (int) (Math.random() * 51) * 2;
+            System.out.println(numram);
+            contador++;
+        } while (numram != 24);
+        System.out.println("Hasta que ha salido el 24, han pasado " + contador);
     }
 
     public void ejercicio10() {
+
+        String carac = "";
+        int lineas, numcarac;
+
+        for (int i = 0; i < 10; i++) {
+
+            lineas = (int) (Math.random() * 6);
+            numcarac = (int) (Math.random() * 40 + 1);
+            switch (lineas) {
+                case 0:
+                    carac = "*";
+                    break;
+                case 1:
+                    carac = "-";
+                    break;
+                case 2:
+                    carac = "=";
+                    break;
+                case 3:
+                    carac = ".";
+                    break;
+                case 4:
+                    carac = "|";
+                    break;
+                case 5:
+                    carac = "@";
+                    break;
+
+            }
+            for (int j = 0; j < numcarac; j++) {
+                System.out.print(carac);
+            }
+
+            System.out.println();
+        }
     }
 
     public void ejercicio11() {
+
+        int nota,
+                suspensos = 0,
+                suficientes = 0,
+                bienes = 0,
+                notables = 0,
+                sobresalientes = 0;
+
+        for (int i = 0; i < 20; i++) {
+
+            nota = (int) (Math.random() * 5);
+
+            switch (nota) {
+                case 0:
+                    System.out.println("suspenso ");
+                    suspensos++;
+                    break;
+                case 1:
+                    System.out.println("suficiente ");
+                    suficientes++;
+                    break;
+                case 2:
+                    System.out.println("bien ");
+                    bienes++;
+                    break;
+                case 3:
+                    System.out.println("notable ");
+                    notables++;
+                    break;
+                case 4:
+                    System.out.println("sobresaliente ");
+                    sobresalientes++;
+                    break;
+                default:
+            }
+
+        }
+
+        System.out.println("Suspensos totales: " + suspensos);
+        System.out.println("Suficientes totales: " + suficientes);
+        System.out.println("Bienes totales: " + bienes);
+        System.out.println("Notables totales: " + notables);
+        System.out.println("Sobresalientes totales: " + sobresalientes);
+
     }
 
     public void ejercicio12() {
+
+        int linea = 0;
+
+        for (int i = 0; i < 8000; i++) {
+            System.out.print((char) (Math.random() * (126 - 32 + 1) + 32));
+
+            if (linea++ == 60) {
+                linea = 0;
+                System.out.println();
+            }
+        }
     }
 
     public void ejercicio13() {
+
+        int dado1 = 0,
+                dado2 = 0;
+
+        do {
+            dado1 = (int) (Math.random() * 6 + 1);
+            dado2 = (int) (Math.random() * 6 + 1);
+
+            System.out.println("Dado1 ha sacado :" + dado1 + "\nDado2 ha sacado : " + dado2);
+        } while (dado1 != dado2);
+
     }
 
     public void ejercicio14() {
