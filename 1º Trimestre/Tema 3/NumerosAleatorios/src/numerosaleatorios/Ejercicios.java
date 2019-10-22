@@ -389,6 +389,42 @@ public class Ejercicios {
     }
 
     public void ejercicio14() {
+
+        int intento = 5,
+                numrandom,
+                numpen,
+                nummin = 0,
+                nummax = 100;
+                
+        boolean correct = false;
+
+        System.out.println("Piensa un numero y el programa intentara adivinarlo.");
+
+        do {
+            numrandom = (int) (Math.random() * (nummax - nummin) + nummin);
+            System.out.println("Es este numero?" + numrandom);
+            System.out.println("Inserta :\n1) Si es mayor \n2) Si es menor \n3) Correcto: ");
+            numpen = s.nextInt();
+
+            intento--;
+
+            if (intento > 0) {
+                switch (numpen) {
+                    case 1:
+                        nummin = numrandom + 1;
+                        break;
+                    case 2:
+                        nummax = numrandom - 1;
+                        break;
+                    case 3:
+                        correct = true;
+                        System.out.println("Sabia que seria ese");
+                        break;
+                }
+            }
+
+        } while (!correct && (intento > 0));
+
     }
 
 }
