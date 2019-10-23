@@ -32,7 +32,7 @@ public class Main {
                     case 0:
                         break;
                     case 1:
-                        ej.ejercicio1();
+                        Ejercicios.ejercicio1();
                         break;
                     case 2:
                         ej.ejercicio2();
