@@ -25,10 +25,10 @@ public class Main {
         Scanner s = new Scanner(System.in);
         Ejercicios ej = new Ejercicios();
         int menu;
-        
+
         try {
             do {
-                System.out.println("0.Salir. \n1-8.Actividades");
+                System.out.println("0.Salir. \n1-7.Actividades");
                 System.out.println("Elija una opción:");
 
                 menu = s.nextInt();
@@ -55,9 +55,6 @@ public class Main {
                         break;
                     case 7:
                         ej.ejercicio7();
-                        break;
-                    case 8:
-                        ej.ejercicio8();
                         break;
                     default:
                         System.out.println("Pruebe con un número entre 0 y 7");
