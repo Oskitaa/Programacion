@@ -29,7 +29,7 @@ public class Main {
         satelite satelite1 = new satelite(0, 0, 0);
         rebajas rebajas1 = new rebajas();
         numero numero1 = new numero();
-                satelite2 satelite2 = new satelite2(0, 0, 0);
+        satelite2 satelite2 = new satelite2(0, 0, 0);
 
         int menu;
 
@@ -88,7 +88,7 @@ public class Main {
                         break;
 
                     case 9:
-                        
+
                         satelite2.setPosicion(10, 23, 123);
                         satelite2.enOrbita();
                         satelite2.printPosicion();
@@ -98,9 +98,26 @@ public class Main {
                         break;
 
                     case 11:
+                        Millasmetros.mostrarDatos();
                         break;
 
                     case 12:
+                        
+                        System.out.println("Elije una marca para el coche: ");
+                        String marca = s.nextLine();
+                        System.out.println("Elije el modelo: ");
+                        String modelo = s.nextLine();
+                        
+                        Coche2 coche1 = new Coche2();
+                        Coche2 coche2 = new Coche2(marca, modelo);
+
+                        System.out.println("La marca es: " + coche1.getMarca());
+                        System.out.println("El modelo es: " + coche1.getModelo());
+
+                        
+                        System.out.println("La marca es: " + coche2.getMarca());
+                        System.out.println("El modelo es: " + coche2.getModelo());
+
                         break;
 
                     case 13:
