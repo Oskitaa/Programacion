@@ -11,4 +11,19 @@ package Producto;
  */
 public class Congelado extends Producto{
     
+    private double temperaturaRecom;
+   
+    public Congelado(String num_lote){
+        super(num_lote);
+        temperaturaRecom = 0;
+    }
+   
+    public void settemperaturaRecom(double temperaturaRecom){
+        temperaturaRecom = temperaturaRecom;
+    }
+   
+    public double gettemperaturaRecom(){
+        return temperaturaRecom;
+    
+}
 }

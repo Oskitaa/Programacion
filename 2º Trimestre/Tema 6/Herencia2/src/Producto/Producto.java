@@ -15,15 +15,15 @@ public class Producto {
 
     LocalDate date = LocalDate.now();
 
-    protected int num_lote;
+    protected String num_lote;
     protected LocalDate fecha_caduciad;
 
     public Producto() {
-        this.num_lote = 0;
+        this.num_lote = "";
         this.fecha_caduciad = dateRandom();
     }
 
-    public Producto(int num_lote) {
+    public Producto(String num_lote) {
         this.num_lote = num_lote;
         this.fecha_caduciad = dateRandom();
     }
@@ -37,18 +37,14 @@ public class Producto {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public int getNum_lote() {
+    public String getNum_lote() {
         return num_lote;
     }
 
-    public void setNum_lote(int num_lote) {
+    public void setNum_lote(String num_lote) {
         this.num_lote = num_lote;
     }
-
+    
     public LocalDate getFecha_caduciad() {
         return fecha_caduciad;
     }
