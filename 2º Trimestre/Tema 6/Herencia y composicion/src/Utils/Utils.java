@@ -119,12 +119,6 @@ public class Utils {
         } while (true);
     }
     
-    public String resetBuffer(){
-    Scanner gby = new Scanner(System.in);
-        return gby.next();
-        
-    }
-    
     public static String toString(String msg){
         return msg;
     }

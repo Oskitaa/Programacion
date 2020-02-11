@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Model;
+
 import Utils.Utils;
 import java.time.DateTimeException;
 import java.time.LocalTime;
@@ -12,19 +13,26 @@ import java.time.LocalTime;
  *
  * @author ese_b
  */
-public class Empleado {
+public class Empleado extends Persona {
 
     protected LocalTime horaEntrada;
     protected LocalTime horaSalida;
-    
+
     Utils uts = new Utils();
 
     public Empleado() {
-        this.horaEntrada = LocalTime.of(8, 0, 0);
-        this.horaSalida = LocalTime.of(16, 0, 0);
+        super();
+        this.horaEntrada = LocalTime.of(0, 0, 0);
+        this.horaSalida = LocalTime.of(0, 0, 0);
     }
 
-    public Empleado(LocalTime horaEntrada, LocalTime horaSalida) {
+    public Empleado(LocalTime horaEntrada, LocalTime horaSalida, int identidad, String nombreCompleto) {
+        super(identidad, nombreCompleto);
+        this.horaEntrada = horaEntrada;
+        this.horaSalida = horaSalida;
+    }
+
+    public void establecerEmpleado(LocalTime horaEntrada, LocalTime horaSalida) {
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
     }
@@ -44,28 +52,56 @@ public class Empleado {
     public void setHoraSalida(LocalTime horaSalida) {
         this.horaSalida = horaSalida;
     }
-    
-    public LocalTime capturarHora (){
-    
+
+    public void capturarEmpleado() {
+        if (horaEntrada.equals(horaSalida) || horaSalida.isAfter(horaEntrada)) {
+            super.capturarPersona();
+        }
+
+        System.out.println("Introduce la hora de entrada:");
+        setHoraEntrada(capturarHora());
+        System.out.println("Introduce la hora de salida");
+        setHoraSalida(capturarHora());
+
+        if (horaSalida.isBefore(horaEntrada)) {
+            System.out.println("Introduce una hora de entrada y salida correcta, no puedes salir antes de entrar.");
+            capturarEmpleado();
+        }
+    }
+
+    public LocalTime capturarHora() {
+
         int hora = 0,
-            minutos = 0,
-            segundos = 0;
-        try{
-        System.out.println("Introduce las horas");
-        hora = uts.getInt();
-        
-        System.out.println("Introduce los minutos");
-        minutos = uts.getInt();
-        
-        System.out.println("Introduce los segundos");
-        segundos = uts.getInt();
-        }
-        catch (DateTimeException e){
-            System.out.println("Inroduce una hora correcata.");
-            uts.next();
-        }
-    return LocalTime.of(hora,minutos,segundos); 
-   }
-    
+                minutos = 0,
+                segundos = 0;
+        do {
+
+            try {
+                System.out.println("Introduce las horas");
+                hora = uts.getInt();
+
+                System.out.println("Introduce los minutos");
+                minutos = uts.getInt();
+
+                System.out.println("Introduce los segundos");
+                segundos = uts.getInt();
+                return LocalTime.of(hora, minutos, segundos);
+
+            } catch (DateTimeException exception) {
+                System.out.println("Inroduce una hora correcata.");
+            }
+
+        } while (true);
+
+    }
+
+    public boolean valida() {
+        return getHoraEntrada().isAfter(getHoraSalida());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Empleado{" + "horaEntrada=" + horaEntrada + ", horaSalida=" + horaSalida + '}';
+    }
 
 }
