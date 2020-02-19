@@ -12,7 +12,7 @@ import Utils.Utils;
  *
  * @author ese_b
  */
-public abstract class Aparato extends Factura {
+public abstract class Aparato {
 
     protected int voltaje;
     protected double precio;
@@ -51,11 +51,16 @@ public abstract class Aparato extends Factura {
     public void capturarAparato() {
 
         Utils uts = new Utils();
-
+        
+        System.out.println("Introduce el voltaje: ");
+        setVoltaje(uts.getInt());
+        System.out.println("Introduce el precio: ");
+        setPrecio(uts.getDouble());
+    
     }
 
     public double calcularDescuento(double descuento) {
-        return ((descuento / 100) + 1) * getPrecio();
+        return (descuento / 100) * getPrecio();
     }
 
     @Override
