@@ -5,15 +5,19 @@
  */
 package Aparato;
 
+import Utils.Utils;
+
 /**
  *
  * @author ese_b
  */
 public abstract class Aparato {
 
+    //Atributos
     protected double precio;
     protected int voltaje;
 
+    //Constructores
     public Aparato() {
         this.precio = 0;
         this.voltaje = 0;
@@ -24,6 +28,7 @@ public abstract class Aparato {
         this.voltaje = voltaje;
     }
 
+    //Getters y setters
     public double getPrecio() {
         return precio;
     }
@@ -39,19 +44,35 @@ public abstract class Aparato {
     public void setVoltaje(int voltaje) {
         this.voltaje = voltaje;
     }
-    
-    public void capturar(){
-        
+
+    //Metodos
+    public void setBoth(double precio, int voltaje) {
+        this.precio = precio;
+        this.voltaje = voltaje;
     }
-    
-    public void imprimir(){
-        
-        System.out.println("El aparato, tiene un precio de "+getPrecio()+", un voltaje de "+getVoltaje()+".");
-        
+
+    public void capturar() {
+
+        Utils uts = new Utils();
+
+        do {
+            System.out.println("Introduce el precio del aparato: ");
+            setPrecio(uts.getDouble());
+        } while (getPrecio() < 0);
+
+        System.out.println("Introduce el voltaje: ");
+        setVoltaje(uts.getInt());
+
     }
-    
-    public double cacularDescuento(double descuento){
-        return (descuento / 100 ) * getPrecio();        
+
+    public void imprimir() {
+
+        System.out.println("El aparato, tiene un precio de " + getPrecio() + ", un voltaje de " + getVoltaje() + ".");
+
+    }
+
+    public double cacularDescuento(double descuento) {
+        return (descuento / 100) * getPrecio();
     }
 
 }

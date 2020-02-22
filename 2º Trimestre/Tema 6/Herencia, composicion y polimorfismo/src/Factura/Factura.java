@@ -12,7 +12,7 @@ import Utils.Utils;
  * @author ese_b
  */
 public abstract class Factura {
-    
+
     protected static int numero;
     protected double pctDescuento;
 
@@ -20,7 +20,7 @@ public abstract class Factura {
         this.numero++;
         this.pctDescuento = 0;
     }
-    
+
     public Factura(double pctDescuento) {
         this.numero++;
         this.pctDescuento = pctDescuento;
@@ -37,16 +37,21 @@ public abstract class Factura {
     public void setPctDescuento(double pctDescuento) {
         this.pctDescuento = pctDescuento;
     }
-    
-    public void capturar(){
-        
-        Utils uts = new Utils();
-        
-        
-        
+
+    public void capturar() {
+
+        do {
+            System.out.println("Introduce el porcentaje de descuento: ");
+            setPctDescuento(Utils.getInt());
+
+        } while (getPctDescuento() <= 0 && getPctDescuento() >= 50);
+
     }
     
-    
-    
-    
+    public void imprimir(){
+        
+        System.out.println("El numero de la factura es "+getNumero()+" y el porcentaje de descuento es "+getPctDescuento()+".");
+        
+    }
+
 }
