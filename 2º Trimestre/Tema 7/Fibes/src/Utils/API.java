@@ -9,8 +9,6 @@ import Entrada.Entrada;
 import Enum.Entradas;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -20,21 +18,28 @@ import java.util.regex.Pattern;
  *
  * @author ese_b
  */
+
+//Le he puesto API por poner
+
 public class API {
 
-    HashMap<String, ArrayList<Entrada>> mapEntradas = new HashMap<String, ArrayList<Entrada>>();
+    HashMap<String, ArrayList<Entrada>> mapEntradas;
 
-    HashMap<Integer, Integer> tipoEntradas = new HashMap<Integer, Integer>();
+    HashMap<Integer, Integer> tipoEntradas;
 
-    Entrada e = new Entrada();
+    Entrada e = new Entrada(0);
+
+    private String nif;
 
     public API() {
+        mapEntradas = new HashMap<String, ArrayList<Entrada>>();
+        tipoEntradas = new HashMap<Integer, Integer>();
         meterEnum();
     }
 
     //Metodos
     public void venderEntrada() {
-
+        e = new Entrada();
         do {
             System.out.println("Introduce tu dni");
             e.setNif(Utils.getString());
@@ -47,13 +52,13 @@ public class API {
 
             if (mapEntradas.containsKey(e.getNif())) {
                 ArrayList<Entrada> arrayentrada = mapEntradas.get(e.getNif());
-                arrayentrada.add(new Entrada());
+                arrayentrada.add(e);
                 degradarEntrada();
                 mapEntradas.replace(e.getNif(), arrayentrada);
                 System.out.println("Entrada comprada con exito!");
             } else {
                 ArrayList<Entrada> arrayEntradas = new ArrayList<>();
-                arrayEntradas.add(new Entrada());
+                arrayEntradas.add(e);
                 degradarEntrada();
                 mapEntradas.put(e.getNif(), arrayEntradas);
                 System.out.println("Entrada comprada con exito!");
@@ -68,14 +73,35 @@ public class API {
             System.out.println("Venda entradas primero");
         } else {
             mostrarEntradasPersona();
+
+            System.out.println("Introduce el numero de la entrada que desea borrar: ");
+
+            int num_ent = Utils.getInt();
+
+            if (mapEntradas.containsKey(nif)) {
+                
+                
+                if (num_ent <= mapEntradas.get(nif).size() && num_ent > 0) {
+                mapEntradas.get(nif).remove(--num_ent);    
+                } else {
+                    System.out.println("Error a la hora de anular la entrada.");
+                }
+                
+
+            }
+
         }
     }
 
     public void mostrarEntradasPersona() {
-        if (!mapEntradas.isEmpty()) {
+        int i = 1;
+        if (mapEntradas.isEmpty()) {
+
+            System.out.println("Venda primero una entrada");
+
+        } else {
 
             Set allnif = new TreeSet(mapEntradas.keySet());
-            String nif;
 
             System.out.println("NIF:" + allnif);
             do {
@@ -83,21 +109,21 @@ public class API {
                 nif = Utils.getString();
             } while (!comprobarDni(nif));
 
-            if (mapEntradas.containsKey(e.getNif())) {
+            if (mapEntradas.containsKey(nif)) {
 
                 ArrayList<Entrada> tickets = mapEntradas.get(nif);
 
                 for (Entrada a : tickets) {
 
-                    System.out.println(a.toString());
+                    System.out.println(i + ". " + a.toString());
+                    i++;
 
                 }
 
             } else {
                 System.out.println("NIF no valido");
+
             }
-        } else {
-            System.out.println("Venda primero una entrada");
         }
     }
 
@@ -145,7 +171,7 @@ public class API {
         return mat.matches();
     }
 
-    private void meterEnum() {
+    public void meterEnum() {
 
         for (Entradas a : Entradas.values()) {
             tipoEntradas.put(a.getCodigo(), a.getMaxima());

@@ -5,7 +5,8 @@
  */
 package Main;
 
-import Utils.*;
+import Model.Actividad;
+import Utils.Utils;
 
 /**
  *
@@ -17,36 +18,26 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        API a = new API();
-
+        Actividad a = new Actividad();
         int opc = 0;
-
         do {
-            Utils.menu("0.Salir.", "1.Vender entrada.","2.Anular entrada.", "3.Mostrar entradas de una persona.", "4.Mostrar cuantas entradas quedan.");
+            Utils.menu("0.Salir", "1.Ejercicio 5", "2.Ejercicio 6");
             opc = Utils.getInt();
 
             switch (opc) {
 
                 case 0:
-                    System.out.println("Adios");
+                    System.out.println("adios");
                     break;
                 case 1:
-                    a.venderEntrada();
+                    a.ejercicio5();
                     break;
                 case 2:
-                    a.anularEntrada();
-                    break;
-                case 3:
-                    a.mostrarEntradasPersona();
-                    break;
-                case 4:
-                    a.mostrarCuantasQuedan();
+                    a.ejercicio6();
                     break;
                 default:
-                    System.out.println("Introduzca una opcion del menu valida.");
+                    System.out.println("Numero erroneo");
                     break;
-
             }
 
         } while (opc != 0);

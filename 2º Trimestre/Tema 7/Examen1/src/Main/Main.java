@@ -5,7 +5,8 @@
  */
 package Main;
 
-import Utils.*;
+import Model.Model;
+import Utils.Utils;
 
 /**
  *
@@ -17,35 +18,31 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // TODO code application logic here
 
-        API a = new API();
+        Model e = new Model();
 
         int opc = 0;
-
         do {
-            Utils.menu("0.Salir.", "1.Vender entrada.","2.Anular entrada.", "3.Mostrar entradas de una persona.", "4.Mostrar cuantas entradas quedan.");
-            opc = Utils.getInt();
 
+            Utils.menu("1.- Vender producto", "2.- Dato un producto, mostrar los clientes que han comprado dicho producto.", "3.- Mostrar el total que se ha gastado un cliente determinado.", "0.- Salir");
+            opc = Utils.getInt();
             switch (opc) {
 
                 case 0:
                     System.out.println("Adios");
                     break;
                 case 1:
-                    a.venderEntrada();
+                    e.venderProducto();
                     break;
                 case 2:
-                    a.anularEntrada();
+                    e.datosProducto();
                     break;
                 case 3:
-                    a.mostrarEntradasPersona();
-                    break;
-                case 4:
-                    a.mostrarCuantasQuedan();
+                    e.mostrarTotalPersona();
                     break;
                 default:
-                    System.out.println("Introduzca una opcion del menu valida.");
-                    break;
+                    System.out.println("Error");
 
             }
 

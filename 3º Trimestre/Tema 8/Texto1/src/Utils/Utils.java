@@ -5,6 +5,8 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -50,7 +52,8 @@ public class Utils {
 
     }
 
-    public static String getString() {
+    public static String getString(String a) {
+        System.out.println(a);
         do {
             try {
                 Scanner gs = new Scanner(System.in);
@@ -132,5 +135,12 @@ public class Utils {
 
     }
 
+    public static boolean comprobarDni(String dni) {
+        //Patron del dni, tiene que contener 8 numeros y una letra minuscula o mayuscula
+        Pattern pat = Pattern.compile("[0-9]{8}[A-Z a-z]");
+        Matcher mat = pat.matcher(dni);
+        //Luego lo metemos en el match y si concide lo introducido con el patron devuelve true
+        return mat.matches();
+    }
 
 }

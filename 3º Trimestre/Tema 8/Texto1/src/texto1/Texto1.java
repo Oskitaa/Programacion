@@ -3,54 +3,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Main;
+package texto1;
 
-import Utils.*;
+import Model.Actividad;
+import Utils.Utils;
 
 /**
  *
  * @author ese_b
  */
-public class Main {
+public class Texto1 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        API a = new API();
-
+        
+        Actividad a = new Actividad();
         int opc = 0;
-
         do {
-            Utils.menu("0.Salir.", "1.Vender entrada.","2.Anular entrada.", "3.Mostrar entradas de una persona.", "4.Mostrar cuantas entradas quedan.");
+            Utils.menu("0.Salir", "1.Ejercicio 1", "2.Ejercicio 2", "3.Ejercicio 3");
             opc = Utils.getInt();
-
+            
             switch (opc) {
-
+                
                 case 0:
-                    System.out.println("Adios");
+                    System.out.println("adios");
                     break;
                 case 1:
-                    a.venderEntrada();
+                    a.ejercicio1();
                     break;
                 case 2:
-                    a.anularEntrada();
+                    a.ejercicio2();
                     break;
                 case 3:
-                    a.mostrarEntradasPersona();
+                    a.ejercicio3();
                     break;
-                case 4:
-                    a.mostrarCuantasQuedan();
-                    break;
-                default:
-                    System.out.println("Introduzca una opcion del menu valida.");
-                    break;
-
+                
             }
-
+            
         } while (opc != 0);
-
+        
     }
-
+    
 }

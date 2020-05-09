@@ -5,8 +5,6 @@
  */
 package Entrada;
 
-import Enum.Entradas;
-import Utils.Utils;
 /**
  *
  * @author ese_b
@@ -26,12 +24,14 @@ public class Entrada {
         numero_entrada = ++numaum;
     }
 
+    public Entrada(int codigo) {
+        this.codigo = 0;
+    }
+
     @Override
     public String toString() {
         return "Entrada{" + "codigo=" + codigo + ", numero_entrada=" + numero_entrada + ", tipo=" + tipo + '}';
     }
-    
-    
 
     //getters y setter
     public int getCodigo() {
