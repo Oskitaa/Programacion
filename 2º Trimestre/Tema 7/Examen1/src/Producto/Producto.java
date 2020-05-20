@@ -5,15 +5,18 @@
  */
 package Producto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author ese_b
  */
-public abstract class Producto {
+public abstract class Producto implements Serializable{
 
     public static int num = 0;
+    private static final long serialVersionUID = 7183125816190573817L;
+    
 
     protected double precio;
     protected String proveedor;

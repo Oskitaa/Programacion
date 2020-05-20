@@ -6,12 +6,15 @@
 package Clientes;
 
 import Utils.Utils;
+import java.io.Serializable;
 
 /**
  *
  * @author ese_b
  */
-public class Clientes {
+public class Clientes implements Serializable {
+
+    private static final long serialVersionUID = 8234733792361201442L;
 
     public static int CODIGO = 1000;
 

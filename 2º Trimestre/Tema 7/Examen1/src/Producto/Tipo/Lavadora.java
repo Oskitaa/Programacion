@@ -6,13 +6,16 @@
 package Producto.Tipo;
 
 import Producto.Producto;
+import java.io.Serializable;
 
 /**
  *
  * @author ese_b
  */
-public class Lavadora extends Producto {
+public class Lavadora extends Producto implements Serializable{
 
+    private static final long serialVersionUID = 1512053718899098511L;
+    
     private int carga;
     private boolean secadora;
 

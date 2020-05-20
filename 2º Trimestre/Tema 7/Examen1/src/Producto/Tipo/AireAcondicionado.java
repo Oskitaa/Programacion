@@ -6,14 +6,16 @@
 package Producto.Tipo;
 
 import Producto.Producto;
+import java.io.Serializable;
 
 /**
  *
  * @author ese_b
  */
-public class AireAcondicionado extends Producto {
+public class AireAcondicionado extends Producto implements Serializable {
 
     private int potencia;
+    private static final long serialVersionUID = 5034969498729468483L;
 
     public AireAcondicionado() {
         super();
@@ -22,7 +24,7 @@ public class AireAcondicionado extends Producto {
     }
 
     public AireAcondicionado(int potencia, double precio, String proveedor) {
-        super(precio, proveedor,"Aire Acondicionado");
+        super(precio, proveedor, "Aire Acondicionado");
         this.potencia = potencia;
     }
 

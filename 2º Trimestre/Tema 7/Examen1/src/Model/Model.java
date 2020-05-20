@@ -12,6 +12,11 @@ import Producto.*;
 import java.util.ArrayList;
 import Producto.Tipo.*;
 import Utils.Utils;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
@@ -21,7 +26,9 @@ import java.util.TreeSet;
  *
  * @author ese_b
  */
-public class Model {
+public class Model implements Serializable {
+
+    private static final long serialVersionUID = 1382568558378521352L;
 
     Clientes cli;
     Producto po;
@@ -155,7 +162,7 @@ public class Model {
 
                         for (Producto b : a) {
                             if (b instanceof AireAcondicionado && b.getProveedor().equalsIgnoreCase(ac.getNombre())) {
-                               System.out.println("Este usuario " + dni + " ha comprado un aire " + ac.getNombre());
+                                System.out.println("Este usuario " + dni + " ha comprado un aire " + ac.getNombre());
                                 break;
                             }
                         }
@@ -179,7 +186,7 @@ public class Model {
         } else {
 
             Set allnif = new TreeSet(haspro.keySet());
-            String nif;
+            String nif, respuesta, texto = "";
             double total = 0;
             System.out.println("NIF:" + allnif);
             do {
@@ -195,7 +202,15 @@ public class Model {
                     total += a.getPrecio();
 
                 }
-                System.out.println("La suma total del usuario " + nif + " es " + total + "€.");
+
+                texto = "La suma total del usuario " + nif + " es " + total + "€.";
+                System.out.println(texto);
+
+                respuesta = Utils.getString("Desea realizar una copia en txt? Introduzca si, cualquier otra cosa sera no.");
+                if (respuesta.equalsIgnoreCase("si")) {
+                    guardarDatos(nif, texto);
+                }
+
             } else {
                 System.out.println("No hay nadie con ese dni");
             }
@@ -231,5 +246,15 @@ public class Model {
 
         } while (opc < 1 || opc > enumAC.values().length);
         return opc - 1;
+    }
+
+    private void guardarDatos(String dni, String texto) {
+        File arc = new File("Total " + dni + ".txt");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(arc));) {
+            bw.write(texto);
+            bw.flush();
+        } catch (IOException e) {
+            System.out.println("Error de escritura.");
+        }
     }
 }

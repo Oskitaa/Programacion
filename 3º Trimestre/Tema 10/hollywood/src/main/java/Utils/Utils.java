@@ -139,18 +139,8 @@ public class Utils {
         //Patron del dni, tiene que contener 8 numeros y una letra minuscula o mayuscula
         Pattern pat = Pattern.compile("[0-9]{8}[A-Z a-z]");
         Matcher mat = pat.matcher(dni);
-        if (!mat.matches()) {
-            return false;
-        }
         //Luego lo metemos en el match y si concide lo introducido con el patron devuelve true
-        String secuenciaLetrasNIF = "TRWAGMYFPDXBNJZSQVHLCKE";
-        dni = dni.toUpperCase();
-
-        String numeroNIF = dni.substring(0, dni.length() - 1);
-
-        char letraNIF = dni.charAt(8);
-        int i = Integer.parseInt(numeroNIF) % 23;
-        return letraNIF == secuenciaLetrasNIF.charAt(i);
+        return mat.matches();
     }
 
 }

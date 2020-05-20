@@ -1,0 +1,6 @@
+Actor\Actor.class
+Actor\Actor_.class
+DataBase\ConexionBBDD.class
+DataBase\ActorService.class
+Utils\Utils.class
+com\hollywood\hollywood.class
